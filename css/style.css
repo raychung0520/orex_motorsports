@@ -30,21 +30,25 @@ li {
 #top-nav {
     background-color: #F5F5F5;
     width: 100%;
+   
 }
 
 .top-nav-list {
-    margin-left: 20px;
+ 
     display: flex;
     height: 100%;
+    margin:0;
+    padding: 14px 0px;
 
 
 }
 
 .top-nav-list>li {
     font-weight: 600;
+    font-size: 13px;
     text-decoration: none;
-    margin-right: 20px;
-    padding: 10px;
+    margin-right: 8px;
+    padding: 5px;
     list-style: none;
     align-items: center;
 
@@ -57,7 +61,7 @@ li {
 
 a {
     text-decoration: none;
-    color: #666465;
+    color: #2b2b2b;
     transition: 0.4s;
 
 }
@@ -86,7 +90,7 @@ i {
 
 
 #spacer>.wrapper {
-    height: 20%;
+    height: 10%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -123,16 +127,21 @@ i {
     justify-content: flex-end;
 }
 
+.searchbar{
+
+    width: 74%;
+}
+
 
 
 form.search-box input[type=search] {
     margin-top: 12px;
     padding: 7px;
-    padding-right: 480px;
+    padding-right: 440px;
     font-size: 17px;
     border: 1px solid grey;
     background: #f1f1f1;
-
+    
     position: relative;
     right: 33px;
 
@@ -140,10 +149,11 @@ form.search-box input[type=search] {
 }
 
 form.search-box button {
-    padding: 7px;
+    padding: 7px 15px;
     background: red;
     color: white;
     font-size: 17px;
+    font-weight: 600;
     border: 1px solid grey;
     position: relative;
     right: 38px;
@@ -171,7 +181,8 @@ form.search-box button {
 .left-column {
 
     background-color: #F5F5F5;
-    width: 24%;
+    width: 23%;
+    height: 80%;
 
 
 }
@@ -191,10 +202,9 @@ form.search-box button {
 .side-nav-list>li {
 
     list-style-type: none;
-    border-bottom: 1px solid black;
-    line-height: 35px;
+    border-bottom: 1px solid lightgray;
+    line-height: 30px;
     display: flex;
-
     justify-content: space-between;
     transition: all 0.4s ease;
 
@@ -204,7 +214,7 @@ form.search-box button {
 
 .side-nav-list a {
     color: #302C2D;
-    padding-left: 20px;
+    padding: 0px 20px;
     height: 100%;
     width: 100%;
     display: block;
@@ -244,7 +254,7 @@ form.search-box button {
 }
 
 .dropdown-container a {
-    padding-left: 50px;
+    padding-left: 35px;
     display: block;
     box-sizing: border-box;
     border-bottom: 1px solid grey;
@@ -291,83 +301,105 @@ form.search-box button {
 
 /* --------------------------------- MAIN  - RIGHT - IMAGE SLIDER -------------------------- */
 
-.slider {
-    min-height: 300px;
+
+.slider-container{
+    margin-top:20px;
+	height: 300px;
+	overflow:hidden;
+	position: relative;
+}
+
+.slider-container .slide{
+	position: absolute;
+	left:50px;
+	top:0;
+	width: 90%;
+	height: 90%;
+    background-size: contain;
+    background-repeat: no-repeat;
+	background-position: center;
+	z-index:1; 
+	display:none;
+	
+	animation: slide 2s ease;
+}
+.slider-container .slide.active{
+	display: flex;
+}
+
+.container{
+	max-width: 1170px;
+	margin:auto;
+	
+}
+
+.slider-container .container{
+	 flex-grow: 1;
 }
 
 
-.slideshow-container {
-    max-width: 1000px;
-
-    position: relative;
-    margin: auto;
+.slider-container .controls .prev,
+.slider-container .controls .next{
+ position: absolute;
+ z-index:2;
+ top:50%;
+ height:65px;
+ width: 40px;
+ margin-top: -20px;
+ color:#ffffff;
+ background-color: #97979C;
+ text-align: center;
+ line-height: 65px;
+ font-size:20px;
+ font-weight: 600;
+ cursor:pointer;
+ transition: all .5s ease;
+}
+.slider-container .controls .prev:hover,
+.slider-container .controls .next:hover{
+    background-color: #b81e1e70;
+    color: red;
+}
+.slider-container .controls .prev{
+ left:0;
+}
+.slider-container .controls .next{
+ right:0;
 }
 
 
-.prev,
-.next {
-    cursor: pointer;
+
+.slider-container .indicator{
+    background-color: #333133;
     position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 16px;
-    margin-top: -22px;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
+    width: 100%;
+    text-align: center;
+    left:50%;
+    ;
+	bottom:0px;
+	z-index: 2;
+	transform: translateX(-50%);
 }
 
+.slider-container .indicator div{
+	display: inline-block;
+	width:25px;
+	height: 25px;
+	color:#ffffff;
+	background-color: #00000060;
+	border-radius:50%;
+	text-align: center;
+    line-height: 25px;
+    margin: 3px 4px 0px 4px;
 
-.next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
+	
 }
 
-
-.prev:hover,
-.next:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+.slider-container .indicator div.active{
+ background-color: rgb(255, 100, 100, 0.8);
 }
 
-
-
-.numbertext {
-    color: #f2f2f2;
-    font-size: 12px;
-    padding: 8px 12px;
-    position: absolute;
-    top: 0;
-}
-
-
-.dot {
-    cursor: pointer;
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
-}
-
-.active,
-.dot:hover {
-    background-color: #717171;
-}
-
-
-.fade {
-    -webkit-animation-name: fade;
-    -webkit-animation-duration: 1.5s;
-    animation-name: fade;
-    animation-duration: 1.5s;
-}
-
-@-webkit-keyframes fade {
+@-webkit-keyframes slide {
     from {
         opacity: .4
     }
@@ -377,7 +409,7 @@ form.search-box button {
     }
 }
 
-@keyframes fade {
+@keyframes slide {
     from {
         opacity: .4
     }
@@ -386,6 +418,9 @@ form.search-box button {
         opacity: 1
     }
 }
+
+
+
 
 /* --------------------------------- MAIN  - RIGHT - LATEST ITEMS -------------------------- */
 
@@ -836,10 +871,24 @@ footer {
         height: 100%;
     }
 
+
+    form.search-box input[type=search] {
+       
+        width: 60%;
+        left:170px;
+
+
+
+    }
+    form.search-box button {
+      left:140px;
+    }
+
+/* 
     form.search-box input[type=search] {
         margin-top: 12px;
         padding: 7px;
-        padding-right: 140px;
+        padding-right: 120px;
         font-size: 17px;
         border: 1px solid grey;
         background: #f1f1f1;
@@ -848,7 +897,7 @@ footer {
         right: 33px;
 
 
-    }
+    } */
 
 
 
@@ -917,10 +966,16 @@ footer {
         padding-right: 0px;
 
         width: 280px;
+        left:10px;
 
 
 
     }
+
+    form.search-box button {
+        left:0px;
+      }
+  
 
 
 
